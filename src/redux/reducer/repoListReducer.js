@@ -7,25 +7,32 @@ export const repoListSlice = createSlice({
     error: false,
     errorMsg: '',
     data: [],
+    page: 0,
+    listEnded: false,
   },
   reducers: {
     setData: (state, action) => {
       state.loading = false;
       state.error = false;
       state.errorMsg = '';
-      state.data = action.payload;
+      state.data = action.payload.data;
+      state.page = action.payload.page;
+      state.listEnded = action.payload.listEnded;
     },
-    setLoading: state => {
+    setLoading: (state, action) => {
       state.loading = true;
       state.error = false;
       state.errorMsg = '';
-      state.data = [];
+      state.page = action.payload.page;
+      state.listEnded = false;
     },
-    setError: state => {
+    setError: (state, action) => {
       state.loading = false;
       state.error = true;
-      state.errorMsg = 'Error loading repositories';
+      state.errorMsg = action.payload.errorMsg || 'Error loading repositories';
       state.data = [];
+      state.page = 0;
+      state.listEnded = false;
     },
   },
 });

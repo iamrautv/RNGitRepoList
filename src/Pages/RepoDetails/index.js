@@ -1,6 +1,7 @@
 import React from 'react';
 import {ScrollView, View, Text} from 'react-native';
-import {helpers} from '../../config';
+import Icon from 'react-native-vector-icons/AntDesign';
+import {helpers, colors} from '../../config';
 import styles from './styles';
 
 const RepoDetails = props => {
@@ -11,27 +12,34 @@ const RepoDetails = props => {
   return (
     <ScrollView style={styles.wrap} contentContainerStyle={styles.wrapInner}>
       <View style={styles.infoRow}>
+        <Icon name="book" size={16} color={colors.primary} />
         <Text style={styles.label}>Name: </Text>
         <Text style={styles.info}>{repoInfo.name}</Text>
       </View>
       <View style={styles.infoRow}>
+        <Icon name="infocirlceo" size={16} color={colors.primary} />
         <Text style={styles.label}>Description: </Text>
         <Text style={styles.info}>{repoInfo.description}</Text>
       </View>
       <View style={styles.infoRow}>
+        <Icon name="staro" size={16} color={colors.primary} />
         <Text style={styles.label}>Rating: </Text>
-        <Text style={styles.info}>{helpers.calculateRepoRating(repoInfo)}</Text>
+        {/* eslint-disable-next-line prettier/prettier */}
+        <Text style={styles.info}>{`${helpers.calculateRepoRating(repoInfo)} Stars`}</Text>
       </View>
       <View style={styles.infoRow}>
-        <Text style={styles.label}>Repo Forks: </Text>
+        <Icon name="rightsquareo" size={16} color={colors.primary} />
+        <Text style={styles.label}>Forks: </Text>
         <Text style={styles.info}>{repoInfo.forks_count}</Text>
       </View>
       <View style={styles.infoRow}>
-        <Text style={styles.label}>Repo Watch Count: </Text>
+        <Icon name="rightsquareo" size={16} color={colors.primary} />
+        <Text style={styles.label}>Watch Count: </Text>
         <Text style={styles.info}>{repoInfo.watchers_count}</Text>
       </View>
       <View style={styles.infoRow}>
-        <Text style={styles.label}>Open Issue Count: </Text>
+        <Icon name="rightsquareo" size={16} color={colors.primary} />
+        <Text style={styles.label}>Open Issues: </Text>
         <Text style={styles.info}>{repoInfo.open_issues_count}</Text>
       </View>
     </ScrollView>

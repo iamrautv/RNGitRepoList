@@ -42,8 +42,20 @@ const App = () => {
           <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
           <NavigationContainer>
             <Stack.Navigator>
-              <Stack.Screen name={routes.RepoSearch} component={SearchRepo} />
-              <Stack.Screen name={routes.RepoDetails} component={RepoDetails} />
+              <Stack.Screen
+                name={routes.RepoSearch}
+                component={SearchRepo}
+                options={{
+                  title: 'Search Repositories',
+                }}
+              />
+              <Stack.Screen
+                name={routes.RepoDetails}
+                component={RepoDetails}
+                options={{
+                  title: 'Repository Information',
+                }}
+              />
             </Stack.Navigator>
           </NavigationContainer>
         </SafeAreaView>
